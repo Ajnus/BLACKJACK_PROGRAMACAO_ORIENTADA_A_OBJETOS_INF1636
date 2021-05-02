@@ -32,12 +32,27 @@ public class Carta {
 
         return megaBaralho;
     }
+    
+    public void setId(String id)
+    {
+    	this.id = id;
+    }
+    
+    public void setValor(String valor)
+    {
+    	this.valor = valor;
+    }
+    
+    public void setNaipe(String naipe)
+    {
+    	this.naipe = naipe;
+    }
 
     public Carta criarCarta(String id, String naipe, String valor){
         Carta carta = new Carta();
-        /*carta.setId(id);
+        carta.setId(id);
         carta.setValor(valor);
-        carta.setNaipe(naipe);*/
+        carta.setNaipe(naipe);
         return carta;
     }
 
