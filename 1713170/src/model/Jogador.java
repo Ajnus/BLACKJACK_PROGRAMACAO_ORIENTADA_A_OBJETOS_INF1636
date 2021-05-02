@@ -39,10 +39,19 @@ public class Jogador {
 		 mao.esvaziarMao();
 	 }
 	 
+	 public void setId(int id)
+	 {
+		 this.id = id;
+	 }
 	 
 	 public int getId()
 	 {
 		 return this.id;
+	 }
+	 
+	 public Mao getMao()
+	 {
+		 return mao;
 	 }
 	 
 	 public void setNome(String nome)

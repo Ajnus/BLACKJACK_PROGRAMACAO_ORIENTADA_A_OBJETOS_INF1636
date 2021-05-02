@@ -15,4 +15,9 @@ public class Dealer {
 		mao.esvaziarMao();
 	}
 	
+	public Mao getMao()
+	{
+		return mao;
+	}
+	
 }

@@ -16,10 +16,25 @@ public class Mao {
 		numeroDeCartas = 0;
 	}
 	
+	public void setNumeroDeCartas(int numero)
+	{
+		numeroDeCartas = numero;
+		
+	}
 	
 	public int getNumeroDeCartas()
 	{
 		return numeroDeCartas;
+	}
+	
+	public void setCartasMao(Carta[] carta)
+	{
+		cartasMao = carta;
+	}
+	
+	public Carta[] getCartasMao()
+	{
+		return cartasMao;
 	}
 	
 }
