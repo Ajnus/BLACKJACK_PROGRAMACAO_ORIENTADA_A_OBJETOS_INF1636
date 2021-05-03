@@ -47,6 +47,21 @@ public class Carta {
     {
     	this.naipe = naipe;
     }
+    
+    public String getId()
+    {
+    	return id;
+    }
+    
+    public String getValor()
+    {
+    	return valor;
+    }
+    
+    public String getNaipe()
+    {
+    	return naipe;
+    }
 
     public Carta criarCarta(String id, String naipe, String valor){
         Carta carta = new Carta();

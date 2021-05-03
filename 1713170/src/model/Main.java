@@ -1,3 +1,7 @@
+/*
+ * @authors Jam Ajna, Luan Ferreira e Paulo Rodrigues
+ */
+
 package model;
 
 import java.util.Scanner;
@@ -29,6 +33,7 @@ public class Main {
 			System.out.println("Saldo: " + jogadores[i].getSaldo());
 		}
 		
-		
+		Carta carta = new Carta();
+		System.out.println(carta.criarBaralho());
 	}
 }
