@@ -28,6 +28,13 @@ public class Jogador {
 		 aposta = 0;
 	 }
 	 
+	 public boolean verificarAposta()
+	 {
+		 if (aposta >= 20 && aposta <= 100)
+			 return true;
+		 return false;
+	 }
+	 
 	 public void removerAposta()
 	 {
 		 saldo -= aposta;
