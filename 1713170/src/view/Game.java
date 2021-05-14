@@ -1,5 +1,6 @@
 package view;
 
+
 public class Game {
 	
 	private final int LARGURA = 1200;
@@ -12,7 +13,7 @@ public class Game {
 		Tela1 tela1 = new Tela1(LARGURA, ALTURA);
 		Window window = new Window("BlackJack", LARGURA, ALTURA);
 		window.getContentPane().add(tela1);
-		int qtd = 0;
+		
 		
 		boolean ligado = true;
 		while(ligado)
@@ -21,9 +22,17 @@ public class Game {
 			if (tela1.getStateIniciar() == false)
 			{
 				ligado = false;
-				qtd = tela1.getQuantidadeJogador();
+				
+				window.setVisible(false);
 			}
 		}
-		System.out.println(qtd);
+		
+		
+		if (tela1.getStateIniciar() == false)
+		{
+			Tela2 tela2 = new Tela2(LARGURA, ALTURA);
+			Window window2 = new Window("BlackJack", LARGURA, ALTURA);
+			window2.getContentPane().add(tela2);
+		}
 	}
 }
