@@ -1,22 +1,36 @@
 package view;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.WindowAdapter;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Tela1 extends JPanel{
+
+
+public class Tela1 extends JPanel implements ActionListener{
 	
 	
 	
 	private static final long serialVersionUID = 1L;
 	private int quantidadeJogador = 0;
+	private boolean stateIniciar = true;
+	
+	private JButton iniciar; 
+	private JButton jogador1;
+	private JButton jogador2;
+	private JButton jogador3;
+	private JButton jogador4;
+	
+	private boolean state1;
+	private boolean state2;
+	private boolean state3;
+	private boolean state4;
 	
 	public Tela1(int LARGURA, int ALTURA)
 	{
-		
 		setLayout(null);
 		setBackground(new Color(5, 83, 22));
 		JLabel titleLabel = new JLabel("BlackJack");
@@ -25,115 +39,125 @@ public class Tela1 extends JPanel{
 		titleLabel.setBounds(LARGURA/2 - 120, -300, LARGURA, ALTURA);
 		add(titleLabel);
 		
-		JLabel okLabel = new JLabel("ok!");
-		okLabel.setFont(new Font("TimesRoman", Font.PLAIN, 25));
-		okLabel.setForeground(new Color(200, 200, 200));
-		okLabel.setBounds(LARGURA - 100, ALTURA/2 - 100, LARGURA, ALTURA);
-		add(okLabel);
 		
-		JLabel[] jogadores = new JLabel[4];
-		for (int i = 0; i < 4; i++)
-		{
-			if (i == 0)
-			{
-				jogadores[i] = new JLabel(String.format("%d Jogador", i + 1));
-				jogadores[i].setFont(new Font("TimesRoman", Font.PLAIN, 25));
-				jogadores[i].setForeground(new Color(200, 200, 200));
-				jogadores[i].setBounds(LARGURA/2 - 75, -50 + 50*i, LARGURA, ALTURA);
-				add(jogadores[i]);
+		jogador1 = new JButton("1 Jogador");
+		jogador1.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+		jogador1.setForeground(new Color(200, 200, 200));
+		jogador1.setBorderPainted(false);
+		jogador1.setContentAreaFilled(false);
+		jogador1.setFocusPainted(false);
+		jogador1.setOpaque(false);
+		jogador1.setBounds(LARGURA/2 - 130, ALTURA/2 - 100, 200, 30);
+		jogador1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				state1 = true;
+				state2 = false;
+				state3 = false;
+				state4 = false;
+				jogador1.setForeground(new Color(0, 0, 0));
+				jogador2.setForeground(new Color(200, 200, 200));
+				jogador3.setForeground(new Color(200, 200, 200));
+				jogador4.setForeground(new Color(200, 200, 200));
 			}
-			else
-			{
-				jogadores[i] = new JLabel(String.format("%d Jogador", i + 1));
-				jogadores[i].setFont(new Font("TimesRoman", Font.PLAIN, 25));
-				jogadores[i].setForeground(new Color(200, 200, 200));
-				jogadores[i].setBounds(LARGURA/2 - 75, -50 + 50*i, LARGURA, ALTURA);
-				add(jogadores[i]);
+		});
+		add(jogador1);
+		
+		jogador2 = new JButton("2 Jogadores");
+		jogador2.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+		jogador2.setForeground(new Color(200, 200, 200));
+		jogador2.setBorderPainted(false);
+		jogador2.setContentAreaFilled(false);
+		jogador2.setFocusPainted(false);
+		jogador2.setOpaque(false);
+		jogador2.setBounds(LARGURA/2 - 120, ALTURA/2 - 50, 200, 30);
+		jogador2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				state1 = false;
+				state2 = true;
+				state3 = false;
+				state4 = false; 
+				jogador1.setForeground(new Color(200, 200, 200));
+				jogador2.setForeground(new Color(0, 0, 0));
+				jogador3.setForeground(new Color(200, 200, 200));
+				jogador4.setForeground(new Color(200, 200, 200));
 			}
-		}
-		addMouseListener(new MouseListener()
+		});
+		add(jogador2);
+		
+		jogador3 = new JButton("3 Jogadores");
+		jogador3.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+		jogador3.setForeground(new Color(200, 200, 200));
+		jogador3.setBorderPainted(false);
+		jogador3.setContentAreaFilled(false);
+		jogador3.setFocusPainted(false);
+		jogador3.setOpaque(false);
+		jogador3.setBounds(LARGURA/2 - 120, ALTURA/2, 200, 30);
+		jogador3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				state1 = false;
+				state2 = false;
+				state3 = true;
+				state4 = false;
+				jogador1.setForeground(new Color(200, 200, 200));
+				jogador2.setForeground(new Color(200, 200, 200));
+				jogador3.setForeground(new Color(0, 0, 0));
+				jogador4.setForeground(new Color(200, 200, 200));
+			}
+		});
+		add(jogador3);
+		
+		jogador4 = new JButton("4 Jogadores");
+		jogador4.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+		jogador4.setForeground(new Color(200, 200, 200));
+		jogador4.setBorderPainted(false);
+		jogador4.setContentAreaFilled(false);
+		jogador4.setFocusPainted(false);
+		jogador4.setOpaque(false);
+		jogador4.setBounds(LARGURA/2 - 120, ALTURA/2 + 50, 200, 30);
+		jogador4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				state1 = false;
+				state2 = false;
+				state3 = false;
+				state4 = true;
+				jogador1.setForeground(new Color(200, 200, 200));
+				jogador2.setForeground(new Color(200, 200, 200));
+				jogador3.setForeground(new Color(200, 200, 200));
+				jogador4.setForeground(new Color(0, 0, 0));
+			}
+		});
+		add(jogador4);
+		
+	
+		
+		iniciar= new JButton("Iniciar!");
+		iniciar.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+		iniciar.setForeground(new Color(200, 200, 200));
+		iniciar.setBorderPainted(false);
+		iniciar.setContentAreaFilled(false);
+		iniciar.setFocusPainted(false);
+		iniciar.setOpaque(false);
+		iniciar.setBounds(LARGURA - 170, ALTURA - 100, 200, 30);
+		iniciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (state1 == false && state2 == false && state3 == false && state4 == false)
 				{
-
-					@Override
-					public void mouseClicked(MouseEvent event) {
-						//System.out.println(event.getX() + "," + event.getY());
-						int x = event.getX();
-						int y = event.getY();
-						int xiOk = 1100; //x inicial do botao ok
-						int xfOk = 1135; //x final do botao ok
-						int yiOk = 590; //y inicial do botao ok
-						int yfOk = 610; //y final do botao ok
-						int xi = 525; //menor coordenada x da label 1 jogador
-						int xf = 680; //maior coordenada x da label 1 jogador
-						int yi = 290; //menor coordenada y da label 1 jogador
-						int yf = 315; //maior coordenada y da label 1 jogador
-						int espaco1 = 40; //espaco da menor coordenada de y da primeira label para segunda label
-						int espaco2 = 50; //espaco da maior coordenada de y da primeira label para segunda label
-						
-						if ((x >= xi && x <= xf) && (y >= yi && y <= yf))
-						{
-							
-							quantidadeJogador = 1;
-							jogadores[0].setForeground(new Color(0, 0, 0));
-							for (int i = 1; i < 4; i++)
-								jogadores[i].setForeground(new Color(200, 200, 200));
-							
-						}
-						else if ((x >= xi && x <= xf) && (y >= yi + espaco1 && y <= yf + espaco2))
-						{
-							
-							quantidadeJogador = 2;
-							jogadores[1].setForeground(new Color(0, 0, 0));
-							for (int i = 0; i < 4; i++)
-							{
-								if (i == 1) i++;
-								jogadores[i].setForeground(new Color(200, 200, 200));
-							}
-							
-						}
-						else if ((x >= xi && x <= xf) && (y >= yi + 2*espaco1 && y <= yf + 2*espaco2))
-						{
-							quantidadeJogador = 3;
-							jogadores[2].setForeground(new Color(0, 0, 0));
-							for (int i = 0; i < 4; i++)
-							{
-								if (i == 2) i++;
-								jogadores[i].setForeground(new Color(200, 200, 200));
-							}
-							
-						}
-						else if ((x >= xi && x <= xf) && (y >= yi + 3*espaco1 && y <= yf + 3*espaco2))
-						{
-							quantidadeJogador = 4;
-							jogadores[3].setForeground(new Color(0, 0, 0));
-							for (int i = 0; i < 3; i++)
-								jogadores[i].setForeground(new Color(200, 200, 200));
-							
-							
-						}
-						else if ((x >= xiOk && x <= xfOk) && (y >= yiOk && y <= yfOk))
-						{
-					
-							okLabel.setForeground(new Color(0, 0, 0));
-							System.exit(0);
-							
-						}
-						
-					}
-
-					@Override
-					public void mouseEntered(MouseEvent arg0) {}
-
-					@Override
-					public void mouseExited(MouseEvent arg0) {}
-
-					@Override
-					public void mousePressed(MouseEvent arg0) {}
-
-					@Override
-					public void mouseReleased(MouseEvent arg0) {}
-				
-				});	
+					JOptionPane.showMessageDialog(null, "Escolha uma das opções!");
+				}
+				else
+				{
+					if (state1 == true) quantidadeJogador = 1;
+					else if (state2 == true) quantidadeJogador = 2;
+					else if (state3 == true) quantidadeJogador = 3;
+					else if (state4 == true) quantidadeJogador = 4;
+					stateIniciar = false;
+					System.exit(0);
+				}
+			}
+		});
+		add(iniciar);
+		
+		
 	}
 	
 	public int getQuantidadeJogador()
@@ -141,6 +165,15 @@ public class Tela1 extends JPanel{
 		return quantidadeJogador;
 	}
 	
+	public boolean getStateIniciar()
+	{
+		return stateIniciar;
+	}
 	
-
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {}
+	
+	
 }
