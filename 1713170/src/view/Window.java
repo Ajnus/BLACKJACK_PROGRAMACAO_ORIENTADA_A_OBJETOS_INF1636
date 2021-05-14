@@ -19,6 +19,7 @@ public class Window extends JFrame{
 		int y = screenHeight/2 - altura/2; 
 		
 		setTitle(title);
+		setBackground(new Color(17, 68, 26));
 		setResizable(false);
 		setBounds(x, y, largura, altura);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
