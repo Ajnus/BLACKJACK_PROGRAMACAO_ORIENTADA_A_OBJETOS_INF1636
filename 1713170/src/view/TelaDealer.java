@@ -17,7 +17,7 @@ public class TelaDealer extends JPanel{
 	
 
 	private static final long serialVersionUID = 1L;
-	private Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\paulo\\Desktop\\Imagens\\blackjackBKG.png");
+	private Image img = Toolkit.getDefaultToolkit().getImage("blackjackBKG.png");
 	Graphics g;
 	
 	
@@ -51,7 +51,7 @@ public class TelaDealer extends JPanel{
 			g.drawImage(img, 0, 0, this);
 			
 		}catch(Exception e) {
-			System.err.println("Imagem n„o encontrada!");
+			System.err.println("Imagem n√£o encontrada!");
 		}
 	}
 }
