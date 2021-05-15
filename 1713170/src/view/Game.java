@@ -10,29 +10,31 @@ public class Game {
 	{
 		
 		
-		Tela1 tela1 = new Tela1(LARGURA, ALTURA);
-		Window window = new Window("BlackJack", LARGURA, ALTURA);
-		window.getContentPane().add(tela1);
-		
-		
+		TelaInicio telaInicio = new TelaInicio(LARGURA, ALTURA);
+		Window windowInicio = new Window("BlackJack", LARGURA, ALTURA);
+		windowInicio.getContentPane().add(telaInicio);
 		boolean ligado = true;
 		while(ligado)
 		{
 			System.out.println("");
-			if (tela1.getStateIniciar() == false)
+			if (telaInicio.getStateIniciar() == false)
 			{
 				ligado = false;
 				
-				window.setVisible(false);
+				windowInicio.setVisible(false);
 			}
 		}
 		
 		
-		if (tela1.getStateIniciar() == false)
+		if (telaInicio.getStateIniciar() == false)
 		{
-			Tela2 tela2 = new Tela2(LARGURA, ALTURA);
-			Window window2 = new Window("BlackJack", LARGURA, ALTURA);
-			window2.getContentPane().add(tela2);
+			TelaJogador telaJogador = new TelaJogador(LARGURA, ALTURA);
+			Window windowJogador = new Window("BlackJack", LARGURA, ALTURA);
+			windowJogador.getContentPane().add(telaJogador);
+			
+			TelaDealer telaDealer = new TelaDealer(LARGURA, ALTURA);
+			Window windowDealer = new Window("BlackJack", LARGURA, ALTURA);
+			windowDealer.getContentPane().add(telaDealer);
 		}
 	}
 }
