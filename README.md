@@ -8,3 +8,6 @@ ferramenta que ensine alguém a jogar Blackjack.
 Os únicos aspectos que o programa irá controlar são aquelas que dizem respeito às
 regras de Blackjack. Para tal, a banca (dealer) será simulada pelo próprio software a ser
 desenvolvido.
+
+Link do cronograma:
+https://docs.google.com/spreadsheets/d/1xJzyVCAoE6GaEFI3goPL5TVdFkB2_kX63-pHJxDvgHc/edit#gid=0
