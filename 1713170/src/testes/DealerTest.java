@@ -9,10 +9,8 @@ import model.Dealer;
 
 public class DealerTest {
 
-	
 	@Test
-	public void testAdicionarCarta()
-	{
+	public void testAdicionarCarta() {
 		// méoto que adiciona carta ao dealer.
 		Dealer dealer = new Dealer();
 		Carta carta = new Carta();
@@ -21,7 +19,7 @@ public class DealerTest {
 		int numeroCartasDealer = dealer.getMao().getNumeroDeCartas();
 		assertEquals(valorEsperado, numeroCartasDealer);
 	}
-	
+
 	@Test
 	public void testEsvaziarMao() {
 		// método que testa se a mão do dealer está vazia.
@@ -32,5 +30,4 @@ public class DealerTest {
 		int numeroCartasDealer = dealer.getMao().getNumeroDeCartas();
 		assertEquals(0, numeroCartasDealer);
 	}
-
 }

@@ -18,10 +18,9 @@ public class CartaTest {
 		assertEquals("Copas", resultadoEsperado.getNaipe());
 		assertEquals("2", resultadoEsperado.getValor());
 	}
-	
+
 	@Test
-	public void testSetId()
-	{
+	public void testSetId() {
 		// testa o método que define a id da carta.
 		Carta carta = new Carta();
 		carta.setId("2K");
@@ -29,21 +28,19 @@ public class CartaTest {
 		String resultadoEsperado = "2K";
 		assertEquals(resultadoEsperado, resultadoId);
 	}
-	
+
 	@Test
-	public void testGetId()
-	{
+	public void testGetId() {
 		// testa o método que captura a id da carta.
 		Carta carta = new Carta();
 		String resultadoEsperado = "2K";
 		carta.setId("2K");
 		String valorId = carta.getId();
-		assertEquals(resultadoEsperado, valorId);	
+		assertEquals(resultadoEsperado, valorId);
 	}
-	
+
 	@Test
-	public void testSetNaipe()
-	{
+	public void testSetNaipe() {
 		// testa o método que define o naipe da carta.
 		Carta carta = new Carta();
 		carta.setNaipe("Copas");
@@ -51,21 +48,19 @@ public class CartaTest {
 		String resultadoEsperado = "Copas";
 		assertEquals(resultadoEsperado, resultadoNaipe);
 	}
-	
+
 	@Test
-	public void testGetNaipe()
-	{
+	public void testGetNaipe() {
 		// testa o método que captura o naipe da carta.
 		Carta carta = new Carta();
 		String resultadoEsperado = "Paus";
 		carta.setNaipe("Paus");
 		String valorNaipe = carta.getNaipe();
-		assertEquals(resultadoEsperado, valorNaipe);	
+		assertEquals(resultadoEsperado, valorNaipe);
 	}
-	
+
 	@Test
-	public void testSetValor()
-	{
+	public void testSetValor() {
 		// testa o método que difine o valor da carta.
 		Carta carta = new Carta();
 		carta.setValor("5");
@@ -73,16 +68,14 @@ public class CartaTest {
 		String resultadoEsperado = "5";
 		assertEquals(resultadoEsperado, resultadoValor);
 	}
-	
+
 	@Test
-	public void testGetValor()
-	{
+	public void testGetValor() {
 		// testa o método que captura o valor da carta.
 		Carta carta = new Carta();
 		String resultadoEsperado = "6";
 		carta.setValor("6");
 		String valor = carta.getValor();
-		assertEquals(resultadoEsperado, valor);	
+		assertEquals(resultadoEsperado, valor);
 	}
-
 }

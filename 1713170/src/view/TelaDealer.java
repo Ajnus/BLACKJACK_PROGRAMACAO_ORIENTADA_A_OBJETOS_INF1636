@@ -1,7 +1,5 @@
 package view;
 
-
-
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -9,24 +7,18 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class TelaDealer extends JPanel{
-	
+public class TelaDealer extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private Image img = Toolkit.getDefaultToolkit().getImage("blackjackBKG.png");
+	private Image img = Toolkit.getDefaultToolkit().getImage("C:/Users/ajnas/git/INF1636/Imagens/blackjackBKG.png");
 	Graphics g;
-	
-	
-	public TelaDealer(int LARGURA, int ALTURA)
-	{
-		
+
+	public TelaDealer(int LARGURA, int ALTURA) {
 		setLayout(null);
-		
-		
+
 		JButton botaoEncerrar = new JButton("Encerrar");
 		botaoEncerrar.setFont(new Font("TimesRoman", Font.PLAIN, 25));
 		botaoEncerrar.setForeground(new Color(200, 200, 200));
@@ -35,22 +27,16 @@ public class TelaDealer extends JPanel{
 		botaoEncerrar.setFocusPainted(false);
 		botaoEncerrar.setBounds(LARGURA - 130, ALTURA - 80, 120, 40);
 		botaoEncerrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	    
+
 		add(botaoEncerrar);
-		
-		
-		
-		
-		
 	}
-	
+
 	@Override
-	public void paintComponent(Graphics g)
-	{
-		try{
+	public void paintComponent(Graphics g) {
+		try {
 			g.drawImage(img, 0, 0, this);
-			
-		}catch(Exception e) {
+
+		} catch (Exception e) {
 			System.err.println("Imagem não encontrada!");
 		}
 	}

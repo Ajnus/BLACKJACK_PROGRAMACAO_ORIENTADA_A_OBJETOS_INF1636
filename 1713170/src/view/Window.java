@@ -4,20 +4,18 @@ import java.awt.*;
 
 import javax.swing.JFrame;
 
-public class Window extends JFrame{
-	
+public class Window extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	
-	public Window(String title, int largura, int altura)
-	{
+
+	public Window(String title, int largura, int altura) {
 		Toolkit tk = Toolkit.getDefaultToolkit();
 		Dimension screenSize = tk.getScreenSize();
 		int screenWidth = screenSize.width;
 		int screenHeight = screenSize.height;
-		int x = screenWidth/2 - largura/2;
-		int y = screenHeight/2 - altura/2; 
-		
+		int x = screenWidth / 2 - largura / 2;
+		int y = screenHeight / 2 - altura / 2;
+
 		setTitle(title);
 		setBackground(new Color(17, 68, 26));
 		setResizable(false);

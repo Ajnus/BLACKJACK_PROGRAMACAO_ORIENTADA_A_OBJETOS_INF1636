@@ -10,8 +10,7 @@ import model.Mao;
 public class MaoTest {
 
 	@Test
-	public void testAdicionarCarta() 
-	{
+	public void testAdicionarCarta() {
 		// testa o método que adiciona a carta na mão do jogador.
 		Mao mao = new Mao();
 		Carta carta = new Carta();
@@ -19,10 +18,9 @@ public class MaoTest {
 		int valorEsperado = 1;
 		assertEquals(valorEsperado, mao.getNumeroDeCartas());
 	}
-	
+
 	@Test
-	public void testEsvaziarMao()
-	{
+	public void testEsvaziarMao() {
 		// testa o método que esvazia a mão do jogador.
 		Mao mao = new Mao();
 		Carta carta = new Carta();
@@ -30,28 +28,24 @@ public class MaoTest {
 		mao.esvaziarMao();
 		assertEquals(0, mao.getNumeroDeCartas());
 	}
-	
+
 	@Test
-	public void setNumeroDeCartas()
-	{
+	public void setNumeroDeCartas() {
 		// testa o método que setta o número de cartas na mão do jogador.
 		Mao mao = new Mao();
 		assertEquals(0, mao.getNumeroDeCartas());
 	}
-	
+
 	@Test
-	public void testGetNumeroDeCartas()
-	{
+	public void testGetNumeroDeCartas() {
 		// testa o método que pega o número de cartas na mão do jogador.
 		Mao mao = new Mao();
 		int valorNumeroDeCartas = mao.getNumeroDeCartas();
 		assertEquals(0, valorNumeroDeCartas);
-		
 	}
-	
+
 	@Test
-	public void testSetCartasMao()
-	{
+	public void testSetCartasMao() {
 		// testa o método que setta as cartas que estão na mão do jogador.
 		Mao mao = new Mao();
 		Carta[] cartas = new Carta[2];
@@ -65,10 +59,9 @@ public class MaoTest {
 		assertEquals(cartas[0], mao.getCartasMao()[0]);
 		assertEquals(cartas[1], mao.getCartasMao()[1]);
 	}
-	
+
 	@Test
-	public void testGetCartasMao()
-	{
+	public void testGetCartasMao() {
 		// testa o método que pega as cartas que estão na mão do jogador.
 		Mao mao = new Mao();
 		Carta[] cartas = new Carta[2];
@@ -80,7 +73,5 @@ public class MaoTest {
 		mao.adicionarCarta(cartas[1]);
 		assertEquals(cartas[0], mao.getCartasMao()[0]);
 		assertEquals(cartas[1], mao.getCartasMao()[1]);
-		
 	}
-
 }

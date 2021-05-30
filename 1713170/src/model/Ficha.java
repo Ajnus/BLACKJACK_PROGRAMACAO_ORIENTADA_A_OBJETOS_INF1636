@@ -4,36 +4,28 @@ public class Ficha {
 	private int id;
 	private int valor;
 	private String cor;
-	
-	
-	
-	public void setId(int id)
-	{
+
+	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public int getId()
-	{
+
+	public int getId() {
 		return id;
 	}
-	
-	public void setValor(int valor)
-	{
+
+	public void setValor(int valor) {
 		this.valor = valor;
 	}
-	
-	public int getValor()
-	{
+
+	public int getValor() {
 		return valor;
 	}
-	
-	public void setCor(String cor)
-	{
+
+	public void setCor(String cor) {
 		this.cor = cor;
 	}
-	
-	public String getCor()
-	{
+
+	public String getCor() {
 		return cor;
 	}
 

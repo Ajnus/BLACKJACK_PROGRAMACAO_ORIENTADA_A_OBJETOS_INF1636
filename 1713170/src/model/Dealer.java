@@ -1,23 +1,20 @@
 package model;
 
 public class Dealer {
-	
+
 	private Mao mao = new Mao();
-	
-	public void adicionarCarta(Carta carta)
-	{
+
+	public void adicionarCarta(Carta carta) {
 		if (mao.getNumeroDeCartas() <= 17)
 			mao.adicionarCarta(carta);
 	}
-	
-	public void esvaziarMao()
-	{
+
+	public void esvaziarMao() {
 		mao.esvaziarMao();
 	}
-	
-	public Mao getMao()
-	{
+
+	public Mao getMao() {
 		return mao;
 	}
-	
+
 }

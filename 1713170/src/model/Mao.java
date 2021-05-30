@@ -1,40 +1,33 @@
 package model;
 
 public class Mao {
-	
+
 	private Carta[] cartasMao = new Carta[21];
 	private int numeroDeCartas = 0;
-	
-	
-	public void adicionarCarta(Carta carta)
-	{
+
+	public void adicionarCarta(Carta carta) {
 		cartasMao[numeroDeCartas++] = carta;
 	}
-	
-	public void esvaziarMao()
-	{
+
+	public void esvaziarMao() {
 		numeroDeCartas = 0;
 	}
-	
-	public void setNumeroDeCartas(int numero)
-	{
+
+	public void setNumeroDeCartas(int numero) {
 		numeroDeCartas = numero;
-		
+
 	}
-	
-	public int getNumeroDeCartas()
-	{
+
+	public int getNumeroDeCartas() {
 		return numeroDeCartas;
 	}
-	
-	public void setCartasMao(Carta[] carta)
-	{
+
+	public void setCartasMao(Carta[] carta) {
 		cartasMao = carta;
 	}
-	
-	public Carta[] getCartasMao()
-	{
+
+	public Carta[] getCartasMao() {
 		return cartasMao;
 	}
-	
+
 }
