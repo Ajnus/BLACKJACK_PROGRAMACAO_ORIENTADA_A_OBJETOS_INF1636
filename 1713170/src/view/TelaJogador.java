@@ -1,12 +1,17 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
-
+import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import model.Jogador;
+import controller.Teste;
 
 public class TelaJogador extends JPanel {
 
@@ -14,7 +19,7 @@ public class TelaJogador extends JPanel {
 	private Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\ajnas\\git\\INF1636\\Imagens\\blackjack.png");
 	Graphics g;
 
-	public TelaJogador(int LARGURA, int ALTURA) {
+	public TelaJogador(int LARGURA, int ALTURA, Jogador[] jogadores) {
 
 		setLayout(null);
 
@@ -57,6 +62,15 @@ public class TelaJogador extends JPanel {
 		botaoDeal.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		add(botaoDeal);
+		
+		Teste teste = new Teste();
+		String saldo = String.valueOf(teste.exibeSaldo(jogadores[0]));
+		JLabel titleLabel = new JLabel(saldo);
+		titleLabel.setFont(new Font("TimesRoman", Font.PLAIN, 21));
+		titleLabel.setForeground(new Color(255, 255, 255));
+		titleLabel.setBounds(62, ALTURA - 78, 120, 40);
+		
+		add(titleLabel);
 	}
 
 	@Override
