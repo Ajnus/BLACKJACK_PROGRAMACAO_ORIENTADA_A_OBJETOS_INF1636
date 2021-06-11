@@ -1,10 +1,18 @@
 package view;
 
 import java.awt.Color;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.TextArea;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -16,11 +24,15 @@ import controller.Teste;
 public class TelaJogador extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private Image img = Toolkit.getDefaultToolkit().getImage("C:\\Users\\ajnas\\git\\INF1636\\Imagens\\blackjack.png");
+	private Image img = Toolkit.getDefaultToolkit().getImage("blackjack.png");
 	Graphics g;
+	// Jogador[] jogadoress;
+	JLabel saldoLabel;
+	JLabel apostaLabel;
 
 	public TelaJogador(int LARGURA, int ALTURA, Jogador[] jogadores) {
 
+		// jogadoress = jogadores;
 		setLayout(null);
 
 		JButton botaoDouble = new JButton("");
@@ -62,15 +74,24 @@ public class TelaJogador extends JPanel {
 		botaoDeal.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		add(botaoDeal);
-		
+
 		Teste teste = new Teste();
 		String saldo = String.valueOf(teste.exibeSaldo(jogadores[0]));
-		JLabel titleLabel = new JLabel(saldo);
-		titleLabel.setFont(new Font("TimesRoman", Font.PLAIN, 21));
-		titleLabel.setForeground(new Color(255, 255, 255));
-		titleLabel.setBounds(62, ALTURA - 78, 120, 40);
-		
-		add(titleLabel);
+		saldoLabel = new JLabel(saldo);
+		saldoLabel.setFont(new Font("TimesRoman", Font.PLAIN, 21));
+		saldoLabel.setForeground(new Color(255, 255, 255));
+		saldoLabel.setBounds(65, ALTURA - 77, 120, 40);
+
+		add(saldoLabel);
+
+		Teste teste1 = new Teste();
+		String aposta = String.valueOf(teste1.exibeAposta(jogadores[0]));
+		apostaLabel = new JLabel(aposta);
+		apostaLabel.setFont(new Font("TimesRoman", Font.PLAIN, 21));
+		apostaLabel.setForeground(new Color(255, 255, 255));
+		apostaLabel.setBounds(65, ALTURA - 116, 120, 40);
+
+		add(apostaLabel);
 	}
 
 	@Override
@@ -79,7 +100,7 @@ public class TelaJogador extends JPanel {
 			g.drawImage(img, 0, 0, this);
 
 		} catch (Exception e) {
-			System.err.println("Imagem n„o encontrada!");
+			System.err.println("Imagem n√£o encontrada!");
 		}
 	}
 }
