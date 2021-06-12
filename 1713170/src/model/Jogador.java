@@ -1,17 +1,24 @@
 package model;
 
+
+//Betting(2), Playing(3), Waiting(4), Surrendered(5), Broke(6),
+//Won(1), Lost(-1), Draw(0);
+
+
 public class Jogador {
 	private int id;
 	private String nome;
 	private int aposta;
-	private int saldo;
-	private boolean state;
+	private int totalFichas;
+	private int pontos;
+	private int state;
 	private Mao mao;
 
 	public Jogador(int id) {
 		this.id = id;
-		saldo = 500;
-		state = false;
+		totalFichas = 500;
+		pontos = 0;
+		state = 2;
 		mao = new Mao();
 	}
 
@@ -19,9 +26,9 @@ public class Jogador {
 		mao.adicionarCarta(carta);
 	}
 
-	public void adicionarAposta() {
-		saldo += aposta;
-		aposta = 0;
+	public void adicionarAposta(int novaAposta) {
+		aposta += novaAposta;
+		totalFichas -= novaAposta;
 	}
 
 	public boolean verificarAposta() {
@@ -31,7 +38,7 @@ public class Jogador {
 	}
 
 	public void removerAposta() {
-		saldo -= aposta;
+		totalFichas -= aposta;
 		aposta = 0;
 	}
 
@@ -67,19 +74,40 @@ public class Jogador {
 		return aposta;
 	}
 
-	public void setSaldo(int saldo) {
-		this.saldo = saldo;
+	public void setTotalFichas(int saldo) {
+		this.totalFichas = saldo;
 	}
 
-	public int getSaldo() {
-		return saldo;
+	public int getTotalFichas() {
+		return totalFichas;
+	}
+	
+	public void setPontos(int pontos)
+	{
+		this.pontos = pontos;
+	}
+	
+	public int getPontos()
+	{
+		return pontos;
+	}
+	
+	public void adicionarPontos(int pontos)
+	{
+		this.pontos += pontos;
+	}
+	
+	public void adicionarNovasFichas(int fichas)
+	{
+		totalFichas += fichas;
+		aposta = 0;
 	}
 
-	public void setState() {
-		state = !state;
+	public void setState(int state) {
+		this.state = state;
 	}
 
-	public boolean getState() {
+	public int getState() {
 		return state;
 	}
 
