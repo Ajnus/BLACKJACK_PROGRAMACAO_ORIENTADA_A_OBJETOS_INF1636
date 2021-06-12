@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Carta {
@@ -8,10 +9,10 @@ public class Carta {
 	private String naipe;
 	private String valor;
 
-	public List<Carta> criarBaralho() {
+	public ArrayList<Carta> criarBaralho() {
 		String cod;
-		List<Carta> megaBaralho = new ArrayList<>();
-		List<String> valorLetras = new ArrayList<>();
+		ArrayList<Carta> megaBaralho = new ArrayList<>();
+		ArrayList<String> valorLetras = new ArrayList<>();
 		valorLetras.add("K");
 		valorLetras.add("J");
 		valorLetras.add("Q");
@@ -26,6 +27,7 @@ public class Carta {
 				megaBaralho.add(criarCarta(Integer.toString(i) + cod, "Espadas", Integer.toString(i)));
 			}
 		}
+		Collections.shuffle(megaBaralho);
 		return megaBaralho;
 	}
 
