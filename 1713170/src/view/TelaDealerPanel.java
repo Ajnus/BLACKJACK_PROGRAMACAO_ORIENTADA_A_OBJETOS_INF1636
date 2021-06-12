@@ -14,7 +14,7 @@ public class TelaDealerPanel extends JPanel{
 	int LARGURA = 900;
 	int ALTURA = 700;
 	public ArrayList<Image> imagemCartas = new ArrayList<Image>();
-	private Image imagemBackGround = Toolkit.getDefaultToolkit().getImage("C:\\Users\\paulo\\INF1636\\Imagens\\blackjackBKG.png");
+	private Image imagemBackGround = Toolkit.getDefaultToolkit().getImage("Imagens/blackjackBKG.png");
 	Graphics g;
 	
 	public TelaDealerPanel()
@@ -28,7 +28,7 @@ public class TelaDealerPanel extends JPanel{
 		
 		try
 		{
-			imagemCarta = Toolkit.getDefaultToolkit().getImage("C:\\Users\\paulo\\INF1636\\Imagens\\"+carta+".png");
+			imagemCarta = Toolkit.getDefaultToolkit().getImage("Imagens/"+carta+".png");
 			
 		}
 		catch(Exception e) 
@@ -47,7 +47,7 @@ public class TelaDealerPanel extends JPanel{
 		
 		try
 		{
-			imagemFicha = Toolkit.getDefaultToolkit().getImage("C:\\Users\\paulo\\INF1636\\Imagens\\ficha"+valor+".png");
+			imagemFicha = Toolkit.getDefaultToolkit().getImage("Imagens/ficha"+valor+".png");
 			
 		}
 		catch(Exception e) 

@@ -133,7 +133,7 @@ public class JogadorTest {
 		// testa o valor do saldo inicial que é no valor de 500.
 		Jogador jogador = new Jogador(2);
 		int resultadoEsperado = 500;
-		int resultadoSaldoInicial = jogador.getSaldo();
+		int resultadoSaldoInicial = jogador.getTotalFichas();
 		assertEquals(resultadoEsperado, resultadoSaldoInicial);
 	}
 
@@ -141,8 +141,8 @@ public class JogadorTest {
 	public void testSaldo() {
 		// testa saldo quando subtraído com algum valor.
 		Jogador jogador = new Jogador(2);
-		int resultadoSaldo = jogador.getSaldo() - 100;
-		jogador.setSaldo(resultadoSaldo);
+		int resultadoSaldo = jogador.getTotalFichas() - 100;
+		jogador.setTotalFichas(resultadoSaldo);
 		int resultadoEsperado = 400;
 		assertEquals(resultadoEsperado, resultadoSaldo);
 	}
@@ -151,7 +151,7 @@ public class JogadorTest {
 	public void testState() {
 		// testa estado do objeto criado.
 		Jogador jogador = new Jogador(1);
-		boolean resultadoEsperado = false;
+		int resultadoEsperado = 0;
 		assertTrue(resultadoEsperado == jogador.getState());
 	}
 
@@ -159,8 +159,8 @@ public class JogadorTest {
 	public void testSetState() {
 		// testa o estado do objeto quando é settado.
 		Jogador jogador = new Jogador(1);
-		boolean resultadoEsperado = true;
-		jogador.setState();
+		int resultadoEsperado = 1;
+		jogador.setState(1);
 		assertTrue(resultadoEsperado == jogador.getState());
 
 	}

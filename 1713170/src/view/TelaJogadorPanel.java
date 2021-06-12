@@ -12,7 +12,7 @@ public class TelaJogadorPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	int LARGURA = 900;
 	int ALTURA = 700;
-	private Image imagemBackGround = Toolkit.getDefaultToolkit().getImage("C:\\Users\\paulo\\INF1636\\Imagens\\blackjack.png");
+	private Image imagemBackGround = Toolkit.getDefaultToolkit().getImage("Imagens/blackjack.png");
 	Graphics g;
 	
 	public TelaJogadorPanel()

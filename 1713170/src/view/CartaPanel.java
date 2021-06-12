@@ -17,7 +17,7 @@ public class CartaPanel extends JPanel{
 		Image imagemCarta = null;
 		
 		try {
-			imagemCarta = Toolkit.getDefaultToolkit().getImage("C:\\Users\\paulo\\INF1636\\Imagens\\"+carta+".png");;
+			imagemCarta = Toolkit.getDefaultToolkit().getImage("Imagens/"+carta+".png");;
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 			System.exit(1);
