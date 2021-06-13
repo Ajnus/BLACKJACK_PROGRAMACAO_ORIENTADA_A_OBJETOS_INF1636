@@ -69,12 +69,12 @@ public class TelaDealerPanel extends JPanel{
 			g.setColor(new Color(128,0,0));
 			g.fillRect(5, 574, 170, 550);
 			
-			desenhaFichas(g, 1, 100);
+			/*desenhaFichas(g, 1, 100);
 			desenhaFichas(g, 5, 200);
 			desenhaFichas(g, 10, 300);
 			desenhaFichas(g, 20, 400);
 			desenhaFichas(g, 50, 500);
-			desenhaFichas(g, 100, 600);
+			desenhaFichas(g, 100, 600);*/
 			
 			
 			int panelWidth = getSize().width;

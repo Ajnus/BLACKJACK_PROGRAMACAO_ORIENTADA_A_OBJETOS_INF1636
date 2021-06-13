@@ -20,6 +20,7 @@ public class JogadorController implements Observer {
 		telaJogador.adicionaObservador(this);
 		telaJogador.updateLabelFicha(jogador.getAposta(), jogador.getTotalFichas());
 		telaJogador.setVisible(true);
+		telaJogador.jogadorPanel.preDesenhaFichas(telaJogador.jogadorPanel.getGraphics(), jogador.getId());
 	}
 
 	public int getJogadorFichas() {
@@ -45,7 +46,7 @@ public class JogadorController implements Observer {
 		}
 	}
 
-	public void render() {
+	public void surrender() {
 		setResultado(5); // render
 		if (jogador.getState() == 3) // jogando
 		{

@@ -40,7 +40,7 @@ public class GameController implements Observer {
 
 	public void inicializaGame(int numeroJogadores) {
 		dealer = new Dealer();
-		telaDealer = new TelaDealer(LARGURA, ALTURA);
+		telaDealer = new TelaDealer(LARGURA, ALTURA); 
 		telaDealer.setListeners(this);
 		telaDealer.adicionaObservador(this);
 		telaDealer.setVisible(true);

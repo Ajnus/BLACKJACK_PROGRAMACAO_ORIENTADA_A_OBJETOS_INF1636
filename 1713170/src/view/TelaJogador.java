@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.Font;
 
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -11,7 +12,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -34,14 +34,16 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 	private JLabel pontosLabel = new JLabel("Pontos: 0");
 	private JLabel apostaLabel = new JLabel("Aposta: 0");
 	private JLabel fichasLabel = new JLabel("Fichas: 500");
+	private JLabel blackLabel = new JLabel("♠BLACKJACK♦");
 	private JLabel erroLabel = new JLabel("");
 
 	private JButton botaoDouble = new JButton("");
 	private JButton botaoSplit = new JButton("");
 	private JButton botaoClear = new JButton("");
 	private JButton botaoDeal = new JButton("");
-	private JButton botaoAposta = new JButton("Apostar");
-	private JButton botaoRender = new JButton("Render");
+	private JButton botaoHit = new JButton("HIT");
+	private JButton botaoSurrender = new JButton("SURRENDER");
+	private JButton botaoQuit = new JButton("QUIT");
 
 	private ArrayList<Observer> observadores;
 
@@ -49,7 +51,7 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 
 		jogadorPanel = new TelaJogadorPanel();
 
-		setTitle("Jogador "+id);
+		setTitle("Jogador " + id);
 		setBackground(new Color(17, 68, 26));
 		setResizable(false);
 		int x = screenWidth / 2 - LARGURA / 2;
@@ -73,7 +75,14 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 
 		jogadorPanel.add(fichasLabel);
 
-		// Trata JButton ações do jogador
+		blackLabel.setForeground(Color.WHITE);
+		blackLabel.setBackground(Color.BLACK);
+		blackLabel.setOpaque(true);
+		blackLabel.setBounds(5, 640, 87, 25);
+
+		jogadorPanel.add(blackLabel);
+
+		// Trata JButton aÃ§Ãµes do jogador
 
 		botaoDouble.setBorderPainted(false);
 		botaoDouble.setContentAreaFilled(false);
@@ -111,23 +120,35 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 
 		jogadorPanel.add(botaoDeal);
 
-		botaoAposta.setForeground(Color.WHITE);
-		botaoAposta.setBackground(new Color(17, 68, 26));
-		botaoAposta.setBorderPainted(false);
-		botaoAposta.setFocusPainted(false);
-		botaoAposta.setBounds(5, 640, 80, 20);
-		botaoAposta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		botaoHit.setForeground(Color.WHITE);
+		botaoHit.setBackground(new Color(17, 68, 26));
+		botaoSurrender.setFont(new Font("TimesRoman", Font.BOLD, 11));
+		botaoHit.setBorderPainted(false);
+		botaoHit.setFocusPainted(false);
+		botaoHit.setBounds(5, 620, 65, 20);
+		botaoHit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		jogadorPanel.add(botaoAposta);
+		jogadorPanel.add(botaoHit);
 
-		botaoRender.setForeground(Color.WHITE);
-		botaoRender.setBackground(new Color(17, 68, 26));
-		botaoRender.setBorderPainted(false);
-		botaoRender.setFocusPainted(false);
-		botaoRender.setBounds(85, 640, 90, 20);
-		botaoRender.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		botaoSurrender.setForeground(Color.WHITE);
+		botaoSurrender.setBackground(new Color(17, 68, 26));
+		botaoSurrender.setFont(new Font("TimesRoman", Font.BOLD, 11));
+		botaoSurrender.setBorderPainted(false);
+		botaoSurrender.setFocusPainted(false);
+		botaoSurrender.setBounds(70, 620, 104, 20);
+		botaoSurrender.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		jogadorPanel.add(botaoRender);
+		jogadorPanel.add(botaoSurrender);
+
+		botaoQuit.setForeground(Color.WHITE);
+		botaoQuit.setBackground(new Color(17, 68, 26));
+		botaoQuit.setFont(new Font("TimesRoman", Font.BOLD, 11));
+		botaoQuit.setBorderPainted(false);
+		botaoQuit.setFocusPainted(false);
+		botaoQuit.setBounds(93, 640, 82, 21);
+		botaoQuit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		jogadorPanel.add(botaoQuit);
 
 		add(jogadorPanel);
 		addMouseListener(this);
@@ -137,14 +158,14 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 
 	public void setListeners(JogadorController controller) {
 
-		botaoRender.addActionListener(new ActionListener() {
+		botaoSurrender.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.render();
+				controller.surrender();
 			}
 		});
 
-		botaoAposta.addActionListener(new ActionListener() {
+		botaoHit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				controller.fimAposta();
@@ -154,9 +175,26 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
 		int x = arg0.getX();
 		int y = arg0.getY();
-		System.out.println("\nClicked:"+ x + "," + y);
+		System.out.println("\nPressed:" + x + "," + y);
 		if ((x >= 752 && x <= 794) && (y >= 597 && y <= 661))
 			notificaObservador(1);
 
@@ -174,57 +212,10 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 
 		else if ((x >= 844 && x <= 877) && (y >= 661 && y <= 700))
 			notificaObservador(100);
-
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public void mousePressed(MouseEvent arg0) {
-		setCursor(Cursor.HAND_CURSOR);
-		try {
-			TimeUnit.MILLISECONDS.sleep(1);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		setCursor(Cursor.getDefaultCursor());
-		/*int x = arg0.getX();
-		int y = arg0.getY();
-		System.out.println("\nPressed:"+ x + "," + y);
-		if ((x >= 752 && x <= 794) && (y >= 597 && y <= 661))
-			notificaObservador(1);
-
-		else if ((x >= 797 && x <= 836) && (y >= 597 && y <= 661))
-			notificaObservador(5);
-
-		else if ((x >= 837 && x <= 870) && (y >= 597 && y <= 661))
-			notificaObservador(10);
-
-		else if ((x >= 750 && x <= 782) && (y >= 661 && y <= 700))
-			notificaObservador(20);
-
-		else if ((x >= 797 && x <= 828) && (y >= 661 && y <= 700))
-			notificaObservador(50);
-
-		else if ((x >= 844 && x <= 877) && (y >= 661 && y <= 700))
-			notificaObservador(100);*/
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 
 	}
 
