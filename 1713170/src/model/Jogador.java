@@ -28,7 +28,7 @@ public class Jogador {
 
 	public void adicionarAposta(int novaAposta) {
 		aposta += novaAposta;
-		totalFichas -= novaAposta;
+		//totalFichas -= novaAposta;
 	}
 
 	public boolean verificarAposta() {

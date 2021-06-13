@@ -15,7 +15,7 @@ public class JogadorController implements Observer {
 
 	public JogadorController(int id) {
 		jogador = new Jogador(id);
-		telaJogador = new TelaJogador(LARGURA, ALTURA);
+		telaJogador = new TelaJogador(LARGURA, ALTURA, id);
 		telaJogador.setListeners(this);
 		telaJogador.adicionaObservador(this);
 		telaJogador.updateLabelFicha(jogador.getAposta(), jogador.getTotalFichas());
@@ -27,9 +27,10 @@ public class JogadorController implements Observer {
 	}
 
 	public void aposta(int valorFicha) {
-		if (jogador.getTotalFichas() >= 0 && valorFicha <= jogador.getTotalFichas()) {
+		if ((jogador.getTotalFichas() >= 0 && valorFicha <= jogador.getTotalFichas())) {
 			jogador.adicionarAposta(valorFicha);
 			telaJogador.updateLabelFicha(jogador.getAposta(), jogador.getTotalFichas());
+			telaJogador.jogadorPanel.desenhaFichas(telaJogador.jogadorPanel.getGraphics(), valorFicha, jogador.getId());
 		} else if (jogador.getAposta() < jogador.getTotalFichas())
 			telaJogador.mensagemErro("Aposta menor que o total de fichas!");
 	}

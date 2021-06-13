@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+
 import java.awt.Cursor;
 import java.awt.Dimension;
 
@@ -10,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -43,11 +45,11 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 
 	private ArrayList<Observer> observadores;
 
-	public TelaJogador(int LARGURA, int ALTURA) {
+	public TelaJogador(int LARGURA, int ALTURA, int id) {
 
 		jogadorPanel = new TelaJogadorPanel();
 
-		setTitle("Jogador");
+		setTitle("Jogador "+id);
 		setBackground(new Color(17, 68, 26));
 		setResizable(false);
 		int x = screenWidth / 2 - LARGURA / 2;
@@ -152,7 +154,26 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		int x = arg0.getX();
+		int y = arg0.getY();
+		System.out.println("\nClicked:"+ x + "," + y);
+		if ((x >= 752 && x <= 794) && (y >= 597 && y <= 661))
+			notificaObservador(1);
+
+		else if ((x >= 797 && x <= 836) && (y >= 597 && y <= 661))
+			notificaObservador(5);
+
+		else if ((x >= 837 && x <= 870) && (y >= 597 && y <= 661))
+			notificaObservador(10);
+
+		else if ((x >= 750 && x <= 782) && (y >= 661 && y <= 700))
+			notificaObservador(20);
+
+		else if ((x >= 797 && x <= 828) && (y >= 661 && y <= 700))
+			notificaObservador(50);
+
+		else if ((x >= 844 && x <= 877) && (y >= 661 && y <= 700))
+			notificaObservador(100);
 
 	}
 
@@ -168,29 +189,37 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void mousePressed(MouseEvent arg0) {
-		int x = arg0.getX();
+		setCursor(Cursor.HAND_CURSOR);
+		try {
+			TimeUnit.MILLISECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		setCursor(Cursor.getDefaultCursor());
+		/*int x = arg0.getX();
 		int y = arg0.getY();
-		System.out.println(x + "," + y);
-		if ((x >= 752 && x <= 787) && (y >= 597 && y <= 647))
+		System.out.println("\nPressed:"+ x + "," + y);
+		if ((x >= 752 && x <= 794) && (y >= 597 && y <= 661))
 			notificaObservador(1);
 
-		else if ((x >= 797 && x <= 828) && (y >= 597 && y <= 647))
+		else if ((x >= 797 && x <= 836) && (y >= 597 && y <= 661))
 			notificaObservador(5);
 
-		else if ((x >= 837 && x <= 870) && (y >= 597 && y <= 647))
+		else if ((x >= 837 && x <= 870) && (y >= 597 && y <= 661))
 			notificaObservador(10);
 
-		else if ((x >= 750 && x <= 782) && (y >= 633 && y <= 700))
+		else if ((x >= 750 && x <= 782) && (y >= 661 && y <= 700))
 			notificaObservador(20);
 
-		else if ((x >= 797 && x <= 828) && (y >= 633 && y <= 700))
+		else if ((x >= 797 && x <= 828) && (y >= 661 && y <= 700))
 			notificaObservador(50);
 
-		else if ((x >= 844 && x <= 877) && (y >= 633 && y <= 700))
-			notificaObservador(100);
-
+		else if ((x >= 844 && x <= 877) && (y >= 661 && y <= 700))
+			notificaObservador(100);*/
 	}
 
 	@Override
@@ -238,7 +267,7 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

@@ -32,7 +32,7 @@ public class TelaDealer extends JFrame implements Subject, MouseListener, Action
 
 	private JLabel pontosLabel = new JLabel("Pontos: 0");
 	private JButton botaoSave = new JButton("Salvar");
-	private JButton botaoFechar = new JButton("Fechar");
+	private JButton botaoFechar = new JButton("Quit");
 
 	private ArrayList<Observer> observadores;
 
@@ -49,19 +49,30 @@ public class TelaDealer extends JFrame implements Subject, MouseListener, Action
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		// JLabel
-		pontosLabel.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+		//pontosLabel.setFont(new Font("TimesRoman", Font.PLAIN, 25));
 		pontosLabel.setForeground(Color.WHITE);
-		pontosLabel.setBounds(6, 500, 100, 70);
+		pontosLabel.setBounds(6, 553, 70, 70);
 		panelDealer.add(pontosLabel);
 
 		// JButton
+		botaoSave.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+		botaoSave.setForeground(Color.WHITE);
+		botaoSave.setBorderPainted(false);
+		botaoSave.setContentAreaFilled(false);
+		botaoSave.setFocusPainted(false);
+		botaoSave.setOpaque(false);
+		botaoSave.setBounds(LARGURA - 100, ALTURA - 125, 100, 40);
+		botaoSave.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		// botaoSave.addActionListener(this);
+		panelDealer.add(botaoSave);
+		
 		botaoFechar.setFont(new Font("TimesRoman", Font.PLAIN, 20));
 		botaoFechar.setForeground(Color.WHITE);
 		botaoFechar.setBorderPainted(false);
 		botaoFechar.setContentAreaFilled(false);
 		botaoFechar.setFocusPainted(false);
 		botaoFechar.setOpaque(false);
-		botaoFechar.setBounds(LARGURA - 100, ALTURA - 120, 100, 40);
+		botaoFechar.setBounds(LARGURA - 100, ALTURA - 85, 100, 40);
 		botaoFechar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		// botaoFechar.addActionListener(this);
 		panelDealer.add(botaoFechar);

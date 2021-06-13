@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -14,7 +15,7 @@ public class TelaDealerPanel extends JPanel{
 	int LARGURA = 900;
 	int ALTURA = 700;
 	public ArrayList<Image> imagemCartas = new ArrayList<Image>();
-	private Image imagemBackGround = Toolkit.getDefaultToolkit().getImage("Imagens/blackjackBKG.png");
+	private Image imagemBackGround = Toolkit.getDefaultToolkit().getImage("Imagens/invblackjackBKG.png");
 	Graphics g;
 	
 	public TelaDealerPanel()
@@ -52,7 +53,7 @@ public class TelaDealerPanel extends JPanel{
 		}
 		catch(Exception e) 
 		{
-			System.err.println("Imagem não encontrada!");
+			System.err.println("Ficha não encontrada!");
 		}
 		
 		int posY = ALTURA - 100;
@@ -65,6 +66,8 @@ public class TelaDealerPanel extends JPanel{
 			super.paintComponent(g);
 			
 			g.drawImage(imagemBackGround, 0, 0, this);
+			g.setColor(new Color(128,0,0));
+			g.fillRect(5, 574, 170, 550);
 			
 			desenhaFichas(g, 1, 100);
 			desenhaFichas(g, 5, 200);
