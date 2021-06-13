@@ -97,9 +97,9 @@ public class GameController implements Observer{
 	@Override
 	public void update(int valor) {
 		if (jogadoresController.get(jogadorAtual).getJogadorFichas() == 0)
-			System.out.println("ok");
+			System.out.println("ok não");
 		
 		jogadoresController.get(jogadorAtual).aposta(valor);
-		System.out.println("ok");
+		//System.out.println("ok");
 	}
 }

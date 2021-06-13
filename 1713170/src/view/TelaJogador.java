@@ -19,7 +19,7 @@ import Observer.Observer;
 import Observer.Subject;
 import controller.JogadorController;
 
-public class TelaJogador extends JFrame implements Subject, MouseListener {
+public class TelaJogador extends JFrame implements Subject, MouseListener, ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
@@ -173,13 +173,13 @@ public class TelaJogador extends JFrame implements Subject, MouseListener {
 		int x = arg0.getX();
 		int y = arg0.getY();
 		System.out.println(x + "," + y);
-		if ((x >= 752 && x <= 787) && (y >= 597 && y <= 627))
+		if ((x >= 752 && x <= 787) && (y >= 597 && y <= 647))
 			notificaObservador(1);
 
-		else if ((x >= 797 && x <= 828) && (y >= 597 && y <= 627))
+		else if ((x >= 797 && x <= 828) && (y >= 597 && y <= 647))
 			notificaObservador(5);
 
-		else if ((x >= 837 && x <= 870) && (y >= 597 && y <= 627))
+		else if ((x >= 837 && x <= 870) && (y >= 597 && y <= 647))
 			notificaObservador(10);
 
 		else if ((x >= 750 && x <= 782) && (y >= 633 && y <= 700))
@@ -233,6 +233,12 @@ public class TelaJogador extends JFrame implements Subject, MouseListener {
 
 		jogadorPanel.add(erroLabel);
 		jogadorPanel.validate();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
