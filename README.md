@@ -1,5 +1,5 @@
 # INF1636
-Curso de Programação Orientada a Objeto, ministrada por Ivan Mathias Filho, coordenador do curso de ciência da computação na PUC-Rio.
+Curso de Programação Orientada a Objetos, ministrada por Ivan Mathias Filho, coordenador do curso de ciência da computação na PUC-Rio.
 
 O objetivo deste trabalho é construir um programa que permita que até quatro pessoas
 joguem, em um único computador, Blackjack contra a banca. Não se trata, portanto, de
