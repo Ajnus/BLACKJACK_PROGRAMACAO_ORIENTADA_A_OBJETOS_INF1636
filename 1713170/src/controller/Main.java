@@ -1,10 +1,9 @@
-/*package controller;
-
-import view.Game;
-
-public class Main {
-
-	public static void main(String[] args) {
-		Game game = new Game();
-	}
-}*/
+/*
+ * package controller;
+ * 
+ * import view.Game;
+ * 
+ * public class Main {
+ * 
+ * public static void main(String[] args) { Game game = new Game(); } }
+ */

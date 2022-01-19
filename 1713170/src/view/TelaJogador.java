@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
-
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,6 +46,10 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 	private JButton botaoQuit = new JButton("QUIT");
 
 	private ArrayList<Observer> observadores;
+
+	private ArrayList<Integer> lastValorFicha;
+
+	private ArrayList<Image> lastImagemFicha;
 
 	public TelaJogador(int LARGURA, int ALTURA, int id) {
 
@@ -153,6 +157,8 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 		add(jogadorPanel);
 		addMouseListener(this);
 		observadores = new ArrayList<Observer>();
+		lastValorFicha = new ArrayList<Integer>();
+		lastImagemFicha = new ArrayList<Image>();
 
 	}
 
@@ -194,24 +200,62 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 	public void mousePressed(MouseEvent arg0) {
 		int x = arg0.getX();
 		int y = arg0.getY();
+		int last = 0;
+		// Image lastImagemFicha = null;
 		System.out.println("\nPressed:" + x + "," + y);
-		if ((x >= 752 && x <= 794) && (y >= 597 && y <= 661))
+		if ((x >= 752 && x <= 794) && (y >= 597 && y <= 661)) {
 			notificaObservador(1);
+			lastValorFicha.add(1);
+			lastImagemFicha.add(jogadorPanel.imagemFichasPilha.get(0));
+		}
 
-		else if ((x >= 797 && x <= 836) && (y >= 597 && y <= 661))
+		else if ((x >= 797 && x <= 836) && (y >= 597 && y <= 661)) {
 			notificaObservador(5);
+			lastValorFicha.add(5);
+			lastImagemFicha.add(jogadorPanel.imagemFichasPilha.get(1));
+		}
 
-		else if ((x >= 837 && x <= 870) && (y >= 597 && y <= 661))
+		else if ((x >= 837 && x <= 870) && (y >= 597 && y <= 661)) {
 			notificaObservador(10);
+			lastValorFicha.add(10);
+			lastImagemFicha.add(jogadorPanel.imagemFichasPilha.get(2));
+		}
 
-		else if ((x >= 750 && x <= 782) && (y >= 661 && y <= 700))
+		else if ((x >= 750 && x <= 782) && (y >= 661 && y <= 700)) {
 			notificaObservador(20);
+			lastValorFicha.add(20);
+			lastImagemFicha.add(jogadorPanel.imagemFichasPilha.get(3));
+		}
 
-		else if ((x >= 797 && x <= 828) && (y >= 661 && y <= 700))
+		else if ((x >= 797 && x <= 828) && (y >= 661 && y <= 700)) {
 			notificaObservador(50);
+			lastValorFicha.add(50);
+			lastImagemFicha.add(jogadorPanel.imagemFichasPilha.get(4));
+		}
 
-		else if ((x >= 844 && x <= 877) && (y >= 661 && y <= 700))
+		else if ((x >= 844 && x <= 877) && (y >= 661 && y <= 700)) {
 			notificaObservador(100);
+			lastValorFicha.add(100);
+			lastImagemFicha.add(jogadorPanel.imagemFichasPilha.get(5));
+		}
+
+		if (lastValorFicha != null && (x >= 833 && x <= 882) && (y >= 153 && y <= 201)) {
+			try {
+				// trata de último valor de ficha apostado
+				last = lastValorFicha.get(lastValorFicha.size() - 1);
+				System.out.println("Last: " + last);
+				lastValorFicha.remove(lastValorFicha.size() - 1);
+				notificaLastFichaObservador(last);
+				// trata de última imagem de ficha apostada
+				jogadorPanel.getGraphics().drawImage(lastImagemFicha.get(lastImagemFicha.size() - 2), 900 - 80,
+						117 /* + deslocamentoY */, null);
+				lastImagemFicha.remove(lastImagemFicha.size() - 1);
+				System.out.println("Removeu.");
+
+			} catch (IndexOutOfBoundsException exception) {
+				System.out.println("Sem apostas anteriores.");
+			}
+		}
 	}
 
 	@Override
@@ -236,6 +280,13 @@ public class TelaJogador extends JFrame implements Subject, MouseListener, Actio
 	public void notificaObservador(int valor) {
 		for (Observer o : observadores)
 			o.update(valor);
+
+	}
+
+	@Override
+	public void notificaLastFichaObservador(int valor) {
+		for (Observer o : observadores)
+			o.updateLastFicha(valor);
 
 	}
 

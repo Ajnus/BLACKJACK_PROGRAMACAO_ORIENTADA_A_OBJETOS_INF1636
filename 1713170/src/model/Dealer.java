@@ -10,13 +10,12 @@ public class Dealer {
 	private boolean state;
 	private int pontos;
 
-	public Dealer()
-	{
+	public Dealer() {
 		Carta c = new Carta();
 		cartas = c.criarBaralho();
 		pontos = 0;
 	}
-	
+
 	public void adicionarCarta(Carta carta) {
 		if (mao.getNumeroDeCartas() <= 17)
 			mao.adicionarCarta(carta);
@@ -29,24 +28,20 @@ public class Dealer {
 	public Mao getMao() {
 		return mao;
 	}
-	
-	public void setId(int id)
-	{
+
+	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public int getId()
-	{
+
+	public int getId() {
 		return id;
 	}
-	
-	public void setPontos(int pontos)
-	{
+
+	public void setPontos(int pontos) {
 		this.pontos = pontos;
 	}
-	
-	public int getPontos()
-	{
+
+	public int getPontos() {
 		return pontos;
 	}
 

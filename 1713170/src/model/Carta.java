@@ -2,7 +2,6 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class Carta {
 	private String id;
@@ -10,21 +9,38 @@ public class Carta {
 	private String valor;
 
 	public ArrayList<Carta> criarBaralho() {
-		String cod;
 		ArrayList<Carta> megaBaralho = new ArrayList<>();
-		ArrayList<String> valorLetras = new ArrayList<>();
-		valorLetras.add("K");
-		valorLetras.add("J");
-		valorLetras.add("Q");
-		valorLetras.add("A");
+		ArrayList<String> codBaralho = new ArrayList<>();
+		ArrayList<String> letrasBaralho = new ArrayList<>();
+		codBaralho.add("A");
+		codBaralho.add("B");
+		codBaralho.add("C");
+		codBaralho.add("D");
+		letrasBaralho.add("J");
+		letrasBaralho.add("Q");
+		letrasBaralho.add("K");
+		letrasBaralho.add("A");
 
-		for (String valorLetra : valorLetras) {
-			cod = valorLetra;
-			for (int i = 2; i < 10; i++) {
-				megaBaralho.add(criarCarta(Integer.toString(i) + cod, "Copas", Integer.toString(i)));
-				megaBaralho.add(criarCarta(Integer.toString(i) + cod, "Paus", Integer.toString(i)));
-				megaBaralho.add(criarCarta(Integer.toString(i) + cod, "Ouros", Integer.toString(i)));
-				megaBaralho.add(criarCarta(Integer.toString(i) + cod, "Espadas", Integer.toString(i)));
+		for (String cod : codBaralho) {
+			for (int i = 2; i < 12; i++) {
+				if (i < 10) {
+					megaBaralho.add(criarCarta(i + "h" + cod, "Copas", Integer.toString(i)));
+					megaBaralho.add(criarCarta(i + "c" + cod, "Paus", Integer.toString(i)));
+					megaBaralho.add(criarCarta(i + "d" + cod, "Ouros", Integer.toString(i)));
+					megaBaralho.add(criarCarta(i + "s" + cod, "Espadas", Integer.toString(i)));
+				} else if (i == 10) {
+					megaBaralho.add(criarCarta("t" + "h" + cod, "Copas", Integer.toString(i)));
+					megaBaralho.add(criarCarta("t" + "c" + cod, "Paus", Integer.toString(i)));
+					megaBaralho.add(criarCarta("t" + "d" + cod, "Ouros", Integer.toString(i)));
+					megaBaralho.add(criarCarta("t" + "s" + cod, "Espadas", Integer.toString(i)));
+				} else {
+					for (String letra : letrasBaralho) {
+						megaBaralho.add(criarCarta(letra.toLowerCase() + "h" + cod, "Copas", letra));
+						megaBaralho.add(criarCarta(letra.toLowerCase() + "c" + cod, "Paus", letra));
+						megaBaralho.add(criarCarta(letra.toLowerCase() + "d" + cod, "Ouros", letra));
+						megaBaralho.add(criarCarta(letra.toLowerCase() + "s" + cod, "Espadas", letra));
+					}
+				}
 			}
 		}
 		Collections.shuffle(megaBaralho);

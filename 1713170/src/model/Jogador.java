@@ -1,9 +1,7 @@
 package model;
 
-
 //Betting(2), Playing(3), Waiting(4), Surrendered(5), Broke(6),
 //Won(1), Lost(-1), Draw(0);
-
 
 public class Jogador {
 	private int id;
@@ -28,7 +26,7 @@ public class Jogador {
 
 	public void adicionarAposta(int novaAposta) {
 		aposta += novaAposta;
-		//totalFichas -= novaAposta;
+		// totalFichas -= novaAposta;
 	}
 
 	public boolean verificarAposta() {
@@ -40,6 +38,10 @@ public class Jogador {
 	public void removerAposta() {
 		totalFichas -= aposta;
 		aposta = 0;
+	}
+
+	public void removerFichaAposta(int last) {
+		aposta -= last;
 	}
 
 	public void esvaziarMao() {
@@ -81,24 +83,20 @@ public class Jogador {
 	public int getTotalFichas() {
 		return totalFichas;
 	}
-	
-	public void setPontos(int pontos)
-	{
+
+	public void setPontos(int pontos) {
 		this.pontos = pontos;
 	}
-	
-	public int getPontos()
-	{
+
+	public int getPontos() {
 		return pontos;
 	}
-	
-	public void adicionarPontos(int pontos)
-	{
+
+	public void adicionarPontos(int pontos) {
 		this.pontos += pontos;
 	}
-	
-	public void adicionarNovasFichas(int fichas)
-	{
+
+	public void adicionarNovasFichas(int fichas) {
 		totalFichas += fichas;
 		aposta = 0;
 	}

@@ -40,7 +40,7 @@ public class GameController implements Observer {
 
 	public void inicializaGame(int numeroJogadores) {
 		dealer = new Dealer();
-		telaDealer = new TelaDealer(LARGURA, ALTURA); 
+		telaDealer = new TelaDealer(LARGURA, ALTURA);
 		telaDealer.setListeners(this);
 		telaDealer.adicionaObservador(this);
 		telaDealer.setVisible(true);
@@ -109,5 +109,11 @@ public class GameController implements Observer {
 
 		jogadoresController.get(jogadorAtual).aposta(valor);
 		// System.out.println("ok");
+	}
+
+	@Override
+	public void updateLastFicha(int last) {
+		// jogador.removerFichaAposta(last);
+		// System.out.printf("valor da aposta: %d\n", jogador.getAposta());
 	}
 }

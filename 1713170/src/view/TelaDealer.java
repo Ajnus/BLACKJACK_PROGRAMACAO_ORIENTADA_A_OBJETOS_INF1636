@@ -49,7 +49,7 @@ public class TelaDealer extends JFrame implements Subject, MouseListener, Action
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		// JLabel
-		//pontosLabel.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+		// pontosLabel.setFont(new Font("TimesRoman", Font.PLAIN, 25));
 		pontosLabel.setForeground(Color.WHITE);
 		pontosLabel.setBounds(6, 553, 70, 70);
 		panelDealer.add(pontosLabel);
@@ -65,7 +65,7 @@ public class TelaDealer extends JFrame implements Subject, MouseListener, Action
 		botaoSave.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		// botaoSave.addActionListener(this);
 		panelDealer.add(botaoSave);
-		
+
 		botaoFechar.setFont(new Font("TimesRoman", Font.PLAIN, 20));
 		botaoFechar.setForeground(Color.WHITE);
 		botaoFechar.setBorderPainted(false);
@@ -158,6 +158,13 @@ public class TelaDealer extends JFrame implements Subject, MouseListener, Action
 	public void notificaObservador(int valor) {
 		for (Observer o : observadores)
 			o.update(valor);
+
+	}
+
+	@Override
+	public void notificaLastFichaObservador(int valor) {
+		for (Observer o : observadores)
+			o.updateLastFicha(valor);
 
 	}
 

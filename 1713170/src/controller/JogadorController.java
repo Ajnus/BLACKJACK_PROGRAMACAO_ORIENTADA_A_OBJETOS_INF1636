@@ -83,4 +83,11 @@ public class JogadorController implements Observer {
 		System.out.printf("valor da aposta: %d\n", valorAposta);
 	}
 
+	@Override
+	public void updateLastFicha(int last) {
+		jogador.removerFichaAposta(last);
+		telaJogador.updateLabelFicha(jogador.getAposta(), jogador.getTotalFichas());
+		System.out.printf("aposta pós retirada de %d: %d\n", last, jogador.getAposta());
+	}
+
 }

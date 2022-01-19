@@ -14,6 +14,7 @@ public class TelaJogadorPanel extends JPanel {
 	int LARGURA = 900;
 	int ALTURA = 700;
 	public ArrayList<Image> imagemFichas = new ArrayList<Image>();
+	public ArrayList<Image> imagemFichasPilha = new ArrayList<Image>();
 	private int[] numFichas = { 1, 5, 10, 20, 50, 100 };
 	// ImageObserver obsere
 	private Image imagemBackGround = Toolkit.getDefaultToolkit().getImage("Imagens/blackjack.png");
@@ -93,6 +94,7 @@ public class TelaJogadorPanel extends JPanel {
 		}
 
 		Image imagemFicha = this.imagemFichas.get(i);
+		imagemFichasPilha.add(imagemFicha);
 		g.drawImage(imagemFicha, LARGURA - 80, 117 + deslocamentoY, null);
 		System.out.println("imprimiu?");
 
