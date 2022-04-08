@@ -9,5 +9,5 @@ Os únicos aspectos que o programa irá controlar são aquelas que dizem respeit
 regras de Blackjack. Para tal, a banca (dealer) será simulada pelo próprio software a ser
 desenvolvido.
 
-Link do cronograma:
+Cronograma:
 https://docs.google.com/spreadsheets/d/1xJzyVCAoE6GaEFI3goPL5TVdFkB2_kX63-pHJxDvgHc/edit#gid=0
