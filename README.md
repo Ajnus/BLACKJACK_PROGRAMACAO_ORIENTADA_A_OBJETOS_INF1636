@@ -1,6 +1,6 @@
-# THE BLACKJACK | PROGRAMAÇÃO ORIENTADA A OBJETOS: INF1636
 ![the blackjack](https://github.com/Ajnus/BLACKJACK_PROGRAMACAO_ORIENTADA_A_OBJETOS_INF1636/assets/8205907/4643154c-0e68-4357-8559-9eb9242d8636)
 
+# THE BLACKJACK | PROGRAMAÇÃO ORIENTADA A OBJETOS: INF1636
 
 Projeto de Programação Orientada a Objetos, disciplina ministrada por Ivan Mathias Filho, coordenador do curso de Ciência da Computação na PUC-Rio.
 
